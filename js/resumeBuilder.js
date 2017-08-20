@@ -15,7 +15,7 @@
 	 },
 	welcomeMessage: "Welcome to my online Resume  ",
 	 skills: [" SQL "," PL/SQL "," HTML "," CSS "," JS "," Tableau"],
-	 biopic: "/Users/amira/Desktop/frontend-nanodegree-resume-master/images/fry",
+	 biopic: "/Users/amira/Desktop/test-rep-master/frontend-nanodegree-resume/images/lisa.jpg",
 	 display: function(){
 		"use strict";
 		 var newname = HTMLheaderName.replace("%data%",bio.name);
@@ -24,31 +24,35 @@ $("#header").prepend(newname);
 		 var newrole = HTMLheaderRole.replace("%data%",bio.role);
 $("#header").prepend(newrole);
 		 	 
-		 var newmobile = HTMLmobile.replace("%data%",bio.mobile);
-$("#header").append(newmobile);
+		 var newmobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
+$("#topContacts").append(newmobile);
 		 
-		 var newemail = HTMLemail.replace("%data%",bio.email);
-$("#header").append(newemail);
+		 var newemail = HTMLemail.replace("%data%",bio.contacts.email);
+$("#topContacts").append(newemail);
 		 
-		 var newtwitter = HTMLtwitter.replace("%data%",bio.twitter);
-$("#header").append(newtwitter);
+		 var newtwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
+$("#topContacts").append(newtwitter);
 		 
-		 var newgithub = HTMLgithub.replace("%data%",bio.github);
-$("#header").append(newgithub);
+		 var newgithub = HTMLgithub.replace("%data%",bio.contacts.github);
+$("#topContacts").append(newgithub);
 		
-		 var newlocation = HTMLlocation.replace("%data%",bio.location);
-$("#body").append(newlocation);
+		 var newlocation = HTMLlocation.replace("%data%",bio.contacts.location);
+$("#topContacts").append(newlocation);
 		 
 		 var newMSG = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
 $("#header").append(newMSG);
 		 
-		 var skillsstart= HTMLskillsStart.replace("%data%",bio.skills);
-$("#header").append(skillsstart);
-		 	 var newskills= HTMLskills.replace("%data%",bio.skills);
-$("#header").append(newskills);
+		
 		 
-			var newbiopic= HTMLbioPic.replace("%data%",bio.biopiciopic);
+		 //var skillsstart= HTMLskillsStart.replace("%data%",bio.skills);
+$("#header").append(HTMLskillsStart);		
+
+		 	 var newskills= HTMLskills.replace("%data%",bio.skills);
+$("#skills").append(newskills);
+		 
+		 	var newbiopic= HTMLbioPic.replace("%data%",bio.biopiciopic);
 $("#header").prepend(newbiopic);
+			
 	 }
  };
 
@@ -66,8 +70,15 @@ var education ={
 		name: "MONASH university",
     	location: "Melbourne,Australia",
     	degree: "Bachelor",
-    	majors: ["information technology and systems"],
-    	dates: "2014/2017",	
+    	majors: ["Information Technology & Systems"],
+    	dates: "2014-2017",	
+		},
+		{
+		name: "TVTC",
+    	location: "Riyadh,Saudi Arabia",
+    	degree: "Diploma",
+    	majors: ["Technical Support"],
+    	dates: "2009-2011",	
 		}
 ],
 		
@@ -75,52 +86,97 @@ var education ={
 		
 		{
 			
-		title: "graphic Design",
-        school: "show academy",
+		title: "Graphic Design",
+        school: "Show Academy",
         dates: "2016",
         url: "http://www.shawacademy.com/"
+		},
 		
+		{
+	
+		title: "Front-End devlopment",
+        school: "Udacity",
+        dates: "2017",
+        url: "https://www.udacity.com/"
+		},
+		
+		{
+	
+		title: "HR management online",
+        school: "Drob & SEU",
+        dates: "2017",
+        url: "https://www.doroob.sa/ar//"
+		},
+		{
+	
+		title: "Leadership skills and supervision management ",
+        school: "Drob & SEU",
+        dates: "2017",
+        url: "https://www.doroob.sa/ar//"
+		},
+		{
+	
+		title: "E-Commerce ",
+        school: "Drob & SEU",
+        dates: "2017",
+        url: "https://www.doroob.sa/ar//"
 		}
+		
 	],
 	
 	display: function(){
 		"use strict";
-	var schoolstart = HTMLschoolStart.replace("%data%",education.schools.name);
-$("#education").append(schoolstart);
 		
-	var schoolname = HTMLschoolName.replace("%data%",education.schools.name);
-$("#education").append(schoolname);
-		
-		var newdscegree = HTMLschoolDegree.replace("%data%",education.schools.degree);
-$("#education").append(newdscegree);
-		
-		var newdate = HTMLschoolDates.replace("%data%",education.schools.dates);
-$("#education").append(newdate);
-		
-	var newlscocation = HTMLschoolLocation.replace("%data%",education.schools.location);
-$("#education").append(newlscocation);
-		
-		var newscmajor = HTMLschoolMajor.replace("%data%",education.schools.major);
-$("#education").append(newscmajor);	
+		for(var i=0;i<education.schools.length;i++){
 			
-			var onlinest = HTMLonlineClasses.replace("%data%",education.onlineCourses);
-$("#education").append(onlinest);
+//
+$("#education").append(HTMLschoolStart);
 		
-		var newtitle = HTMLonlineTitle.replace("%data%",education.onlineCourses.title);
-$("#education").append(newtitle);
+	var schoolname = HTMLschoolName.replace("%data%",education.schools[i].name);
+$(".education-entry:last").append(schoolname);
 		
-	var newonlineschool = HTMLonlineSchool.replace("%data%",education.onlineCourses.school);
-$("#education").append(newonlineschool);
+		var newdscegree = HTMLschoolDegree.replace("%data%",education.schools[i].degree);
+$(".education-entry:last").append(newdscegree);
+			
 		
-		var newonlinedate = HTMLonlineDates.replace("%data%",education.onlineCourses.dates);
-$("#education").append(newonlinedate);	
+		var newdate = HTMLschoolDates.replace("%data%",education.schools[i].dates);
+$(".education-entry:last").append(newdate);
 		
+	var newlscocation = HTMLschoolLocation.replace("%data%",education.schools[i].location);
+$(".education-entry:last").append(newlscocation);
+		
+		var newmajor = HTMLschoolMajor.replace("%data%",education.schools[i].majors);
+$(".education-entry:last").append(newmajor);	
+			}
+		
+		
+		
+$("#education").append(HTMLonlineClasses);
+		
+for(var i=0;i<education.onlineCourses.length;i++){
+$("#education").append(HTMLschoolStart);
+			
+		var newtitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[i].title);
+
+$(".education-entry:last").append(newtitle);
+		
+	var newonlineschool = HTMLonlineSchool.replace("%data%",education.onlineCourses[i].school);
+$(".education-entry:last").append(newonlineschool);
+		
+		var newonlinedate = HTMLonlineDates.replace("%data%",education.onlineCourses[i].dates);
+$(".education-entry:last").append(newonlinedate);	
+	
+	var onlineUrl = HTMLonlineURL.replace("%data%",education.onlineCourses[i].url);
+$(".education-entry:last").append(onlineUrl );	
+		
+		}
 	}
 };
 
 education.display();
 
 
+//$("#mapDiv").append(googleMap);
 
 //////////third object////////
 
@@ -133,20 +189,27 @@ var work ={
         location: "string",
         dates: "2011/2012",
         description: "string",
-				display: function(){
-	"use strict";		
-	var newemployer = HTMLworkEmployer.replace("%data%",work.employer);
-$("#work").append(newemployer);
-			var worktitle = HTMLworkTitle.replace("%data%",work.title);
-$("#work").append(worktitle);
-			var worklocation = HTMLworkDates.replace("%data%",work.location);
-$("#work").append(worklocation);
-			var workdate =  HTMLworkLocation.replace("%data%",work.dated);
-$("#work").append(workdate);
-			var workDescription = HTMLworkDescription.replace("%data%",work.description);
-$("#work").append(workDescription);
+			
+		display: function(){
+			"use strict";
+	$("#work-entry:last").append(HTMLworkStart);
+			
+	//for(var i=0;i<work.jobs.length;i++){
+		
+	
+	        var newemployer = HTMLworkEmployer.replace("%data%",work.jobs[i].employer);
+$(".work-entry:last").append(newemployer);
+			var worktitle = HTMLworkTitle.replace("%data%",work.jobs[i].title);
+$(".work-entry:last").append(worktitle);
+			var worklocation = HTMLworkDates.replace("%data%",work.jobs[i].location);
+$(".work-entry:last").append(worklocation);
+			var workdate =  HTMLworkLocation.replace("%data%",work.jobs[i].dates);
+$(".work-entry:last").append(workdate);
+			var workDescription = HTMLworkDescription.replace("%data%",work.jobs[i].description);
+$(".work-entry:last").append(workDescription);
 		}
-}
+			}
+
 		]
 };
       
@@ -160,33 +223,42 @@ work.display();
  var projects=
 {
 
-  [
+  project:[
 	  {
 
-		title: "string",
+		title: "Website",
         dates: "2016/2017",
-        description: "string",
+        description: "i worked with a group of 4 to bould a website for Unified fright management. the website aims to illustrates unifid fright services in australia and to make it easy for the new costomers to contact the owner David by using contact form , as well as making it ewwasy for david to manage inquiries in the admin dashboard.the all website was developed by Cackephp",
         images:["",""] 
    
 	   } 
   ],
 	
 display:function(){
+	"use strict";
 	
+for(var i=0;i<projects.project.length;i++){
+		$("#education").append(HTMLschoolStart);
 
-"use strict";
-		 var projecttitle = HTMLprojectTitle.replace("%data%",projects.title);
-$("#projects").append(projecttitle); 
+	//$("#project-entry:").append(HTMLprojectStart);
+	
+	
+	var newproject = HTMLprojectStart.replace("%data%",projects.project);
+$(".project-entry:last").append(newproject); 
+	
+		 var projecttitle = HTMLprojectTitle.replace("%data%",projects.project[i].title);
+$(".project-entry:last").append(projecttitle); 
 		 
-		  var projectdates = HTMLprojectDates.replace("%data%",projects.dates);
-$("#projects").append(projectdates); 
+		  var projectdates = HTMLprojectDates.replace("%data%",projects.project[i].dates);
+$("project-entry:last").append(projectdates); 
 		 
-var projectdescription = HTMLprojectDescription.replace("%data%",projects.description);
-$("#projects").append(projectdescription); 
+var projectdescription = HTMLprojectDescription.replace("%data%",projects.project[i].description);
+$(".project-entry:last").append(projectdescription); 
 		 
 		  //var projectimg = HTMLprojectImage.replace("%data%",projects.images);
 //$("#projects").append(projectimg); 
-
+}
+}
 };
         
 projects.display();
