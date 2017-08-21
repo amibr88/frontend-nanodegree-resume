@@ -15,7 +15,7 @@
 	 },
 	welcomeMessage: "Welcome to my online Resume  ",
 	 skills: [" SQL "," PL/SQL "," HTML "," CSS "," JS "," Tableau"],
-	 biopic: "/Users/amira/Desktop/test-rep-master/frontend-nanodegree-resume/images/lisa.jpg",
+	 //biopic: "/Users.amira.Desktop.test-rep-master.frontend-nanodegree-resume.images.lisa.jpg",
 	 display: function(){
 		"use strict";
 		 var newname = HTMLheaderName.replace("%data%",bio.name);
@@ -176,7 +176,8 @@ $(".education-entry:last").append(onlineUrl );
 education.display();
 
 
-//$("#mapDiv").append(googleMap);
+console.log(googleMap);
+$("#mapDiv").append(googleMap);
 
 //////////third object////////
 
@@ -189,14 +190,13 @@ var work ={
         location: "string",
         dates: "2011/2012",
         description: "string",
-			
+		}],
 		display: function(){
 			"use strict";
 	$("#work-entry:last").append(HTMLworkStart);
 			
 	//for(var i=0;i<work.jobs.length;i++){
 		
-	
 	        var newemployer = HTMLworkEmployer.replace("%data%",work.jobs[i].employer);
 $(".work-entry:last").append(newemployer);
 			var worktitle = HTMLworkTitle.replace("%data%",work.jobs[i].title);
@@ -207,15 +207,10 @@ $(".work-entry:last").append(worklocation);
 $(".work-entry:last").append(workdate);
 			var workDescription = HTMLworkDescription.replace("%data%",work.jobs[i].description);
 $(".work-entry:last").append(workDescription);
-		}
-			}
-
-		]
-};
+			
+}};
       
 work.display();     
-
-
 
 ///////////forth object/////////
 
@@ -261,7 +256,7 @@ $(".project-entry:last").append(projectdescription);
 }
 };
         
-projects.display();
+projrct.display();
     
 
  
