@@ -195,33 +195,30 @@ var work ={
 			"use strict";
 	$("#work-entry:last").append(HTMLworkStart);
 			
-	//for(var i=0;i<work.jobs.length;i++){
+	for(var j=0;j<work.jobs.length;j++){
 		
-	        var newemployer = HTMLworkEmployer.replace("%data%",work.jobs[i].employer);
+	        var newemployer = HTMLworkEmployer.replace("%data%",work.jobs[j].employer);
 $(".work-entry:last").append(newemployer);
-			var worktitle = HTMLworkTitle.replace("%data%",work.jobs[i].title);
+			var worktitle = HTMLworkTitle.replace("%data%",work.jobs[j].title);
 $(".work-entry:last").append(worktitle);
-			var worklocation = HTMLworkDates.replace("%data%",work.jobs[i].location);
+			var worklocation = HTMLworkDates.replace("%data%",work.jobs[j].location);
 $(".work-entry:last").append(worklocation);
-			var workdate =  HTMLworkLocation.replace("%data%",work.jobs[i].dates);
+			var workdate =  HTMLworkLocation.replace("%data%",work.jobs[j].dates);
 $(".work-entry:last").append(workdate);
-			var workDescription = HTMLworkDescription.replace("%data%",work.jobs[i].description);
+			var workDescription = HTMLworkDescription.replace("%data%",work.jobs[j].description);
 $(".work-entry:last").append(workDescription);
 			
-}};
+};
       
 work.display();     
 
-///////////forth object/////////
+///////////object 4 /////////
 
 
- var projects=
-{
-
-  project:[
+ var projects={
+ project:[
 	  {
-
-		title: "Website",
+     	title: "Website",
         dates: "2016/2017",
         description: "i worked with a group of 4 to bould a website for Unified fright management. the website aims to illustrates unifid fright services in australia and to make it easy for the new costomers to contact the owner David by using contact form , as well as making it ewwasy for david to manage inquiries in the admin dashboard.the all website was developed by Cackephp",
         images:["",""] 
@@ -234,12 +231,8 @@ display:function(){
 	
 for(var i=0;i<projects.project.length;i++){
 		$("#education").append(HTMLschoolStart);
-
-	//$("#project-entry:").append(HTMLprojectStart);
 	
-	
-	var newproject = HTMLprojectStart.replace("%data%",projects.project);
-$(".project-entry:last").append(newproject); 
+$("#project-entry:last").append(HTMLprojectStart); 
 	
 		 var projecttitle = HTMLprojectTitle.replace("%data%",projects.project[i].title);
 $(".project-entry:last").append(projecttitle); 
@@ -250,8 +243,6 @@ $("project-entry:last").append(projectdates);
 var projectdescription = HTMLprojectDescription.replace("%data%",projects.project[i].description);
 $(".project-entry:last").append(projectdescription); 
 		 
-		  //var projectimg = HTMLprojectImage.replace("%data%",projects.images);
-//$("#projects").append(projectimg); 
 }
 }
 };
