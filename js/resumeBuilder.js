@@ -190,10 +190,10 @@ var work = {
   }],
   display: function() {
     "use strict";
-    $("#work-entry:last").append(HTMLworkStart);
+    
 
     for (var j = 0; j < work.jobs.length; j++) {
-
+$("#work").append(HTMLworkStart);
       var newemployer = HTMLworkEmployer.replace("%data%", work.jobs[j].employer);
       $(".work-entry:last").append(newemployer);
       var worktitle = HTMLworkTitle.replace("%data%", work.jobs[j].title);
@@ -218,7 +218,7 @@ var projects = {
   projects: [{
     title: "Website",
     dates: "2016/2017",
-    description: "i worked with a group of 4 to bould a website for Unified fright management. the website aims to illustrates unifid fright services in australia and to make it easy for the new costomers to contact the owner David by using contact form , as well as making it ewwasy for david to manage inquiries in the admin dashboard.the all website was developed by Cackephp",
+    description: "I worked with a group of 4 to bould a website for Unified fright management. the website aims to illustrates unifid fright services in australia and to make it easy for the new costomers to contact the owner David by using contact form , as well as making it ewwasy for david to manage inquiries in the admin dashboard.the all website was developed by Cackephp",
     images: ["http://lorempixel.com/400/200/abstract/1/", "http://lorempixel.com/400/200/abstract/1/"]
 
   }],
