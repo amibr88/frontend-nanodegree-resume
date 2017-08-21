@@ -10,9 +10,10 @@ var bio = {
     twitter: "iaialm",
     location: "Riyadh",
   },
+  biopic: "images/lisa.jpg",
   welcomeMessage: "Welcome to my online Resume  ",
   skills: [" SQL ", " PL/SQL ", " HTML ", " CSS ", " JS ", " Tableau"],
-  biopic: "images/lisa.jpg",
+  
   //biopic: "/Users.amira.Desktop.test-rep-master.frontend-nanodegree-resume.images.lisa.jpg",
   display: function() {
     "use strict";
@@ -42,14 +43,16 @@ var bio = {
 
 
 
-    //var skillsstart= HTMLskillsStart.replace("%data%",bio.skills);
+   
     $("#header").append(HTMLskillsStart);
+	  
+	   var newbiopic = HTMLbioPic.replace("%data%", bio.biopic);
+    $("#header").prepend(newbiopic);
 
     var newskills = HTMLskills.replace("%data%", bio.skills);
     $("#skills").append(newskills);
 
-    var newbiopic = HTMLbioPic.replace("%data%", bio.biopic);
-    $("#header").prepend(newbiopic);
+   
 
   }
 };
@@ -147,7 +150,7 @@ var education = {
       $(".education-entry:last").append(newmajor);
     }
 
-
+//online
 
     $("#education").append(HTMLonlineClasses);
 
@@ -173,7 +176,6 @@ var education = {
 
 education.display();
 
-
 console.log(googleMap);
 $("#mapDiv").append(googleMap);
 
@@ -188,21 +190,21 @@ var work = {
     dates: "2011/2012",
     description: "string",
   }],
+	
   display: function() {
     "use strict";
-    
-
-    for (var j = 0; j < work.jobs.length; j++) {
-$("#work").append(HTMLworkStart);
-      var newemployer = HTMLworkEmployer.replace("%data%", work.jobs[j].employer);
+    for (var i = 0; i < work.jobs.length; i++) {
+      $("#work").append(HTMLworkStart);
+		
+      var newemployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
       $(".work-entry:last").append(newemployer);
-      var worktitle = HTMLworkTitle.replace("%data%", work.jobs[j].title);
+      var worktitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
       $(".work-entry:last").append(worktitle);
-      var worklocation = HTMLworkDates.replace("%data%", work.jobs[j].location);
+      var worklocation = HTMLworkDates.replace("%data%", work.jobs[i].location);
       $(".work-entry:last").append(worklocation);
-      var workdate = HTMLworkLocation.replace("%data%", work.jobs[j].dates);
+      var workdate = HTMLworkLocation.replace("%data%", work.jobs[i].dates);
       $(".work-entry:last").append(workdate);
-      var workDescription = HTMLworkDescription.replace("%data%", work.jobs[j].description);
+      var workDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
       $(".work-entry:last").append(workDescription);
 
     }
