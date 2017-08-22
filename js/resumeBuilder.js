@@ -14,7 +14,7 @@ var bio = {
   welcomeMessage: "Welcome to my online Resume  ",
   skills: [" SQL ", " PL/SQL ", " HTML ", " CSS ", " JS ", " Tableau"],
   
-  //biopic: "/Users.amira.Desktop.test-rep-master.frontend-nanodegree-resume.images.lisa.jpg",
+ 
   display: function() {
     "use strict";
     var newname = HTMLheaderName.replace("%data%", bio.name);
@@ -176,7 +176,7 @@ var education = {
 
 education.display();
 
-console.log(googleMap);
+//console.log(googleMap);
 $("#mapDiv").append(googleMap);
 
 //////////third object////////
@@ -184,18 +184,18 @@ $("#mapDiv").append(googleMap);
 var work = {
   jobs: [{
 
-    employer: "string",
-    title: "string",
-    location: "string",
+    employer: "Saudi schezophreena cocity",
+    title: "IT technician",
+    location: "Riyadh",
     dates: "2011/2012",
-    description: "string",
+    description: "I was working on IT field . to fix Devices and manage the social media accounts",
   }],
 	
   display: function() {
+	$("#work").append(HTMLworkStart);
     "use strict";
     for (var i = 0; i < work.jobs.length; i++) {
       $("#work").append(HTMLworkStart);
-		
       var newemployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
       $(".work-entry:last").append(newemployer);
       var worktitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
@@ -221,8 +221,15 @@ var projects = {
     title: "Website",
     dates: "2016/2017",
     description: "I worked with a group of 4 to bould a website for Unified fright management. the website aims to illustrates unifid fright services in australia and to make it easy for the new costomers to contact the owner David by using contact form , as well as making it ewwasy for david to manage inquiries in the admin dashboard.the all website was developed by Cackephp",
-    images: ["http://lorempixel.com/400/200/abstract/1/", "http://lorempixel.com/400/200/abstract/1/"]
-
+    images:["images/uni1.jpg"]
+	 
+  },
+{
+    title: "Data Visualisation",
+    dates: "2016",
+    description: "It was an information visualisation about Gender, Institutions and Education Development Among Countries, the study was counducted in 2009 .. I illustrates the Data by using Public Tableau to make it easier for anyone to understand, compare,and discover all the numbers about the listed countries and areas",
+    images:["images/l1.png"]
+	 
   }],
 
   display: function() {
@@ -242,9 +249,9 @@ var projects = {
       var projectdescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
       $(".project-entry:last").append(projectdescription);
 
-      // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
-      // use a loop in a loop/ nested loop
-      // to format and append project images here
+		 var newimages = HTMLprojectImage.replace("%data%", projects.projects[i].images);
+      $(".project-entry:last").append(newimages);
+		
 
     }
   }
