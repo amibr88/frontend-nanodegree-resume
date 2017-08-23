@@ -41,18 +41,18 @@ var bio = {
     var newMSG = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(newMSG);
 
-
+   var newbiopic = HTMLbioPic.replace("%data%", bio.biopic);
+    $("#header").append(newbiopic);
 
    
     $("#header").append(HTMLskillsStart);
 	  
-	   var newbiopic = HTMLbioPic.replace("%data%", bio.biopic);
-    $("#header").prepend(newbiopic);
-
-    var newskills = HTMLskills.replace("%data%", bio.skills);
+for(var j=0;j<bio.skills.length;j++){
+	
+	 var newskills = HTMLskills.replace("%data%", bio.skills[j]);
     $("#skills").append(newskills);
-
-   
+}
+  
 
   }
 };
@@ -176,7 +176,7 @@ var education = {
 
 education.display();
 
-//console.log(googleMap);
+console.log(googleMap);
 $("#mapDiv").append(googleMap);
 
 //////////third object////////
@@ -192,10 +192,10 @@ var work = {
   }],
 	
   display: function() {
-	$("#work").append(HTMLworkStart);
+	$("#workExperience").append(HTMLworkStart);
     "use strict";
     for (var i = 0; i < work.jobs.length; i++) {
-      $("#work").append(HTMLworkStart);
+      $("#workExperience").append(HTMLworkStart);
       var newemployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
       $(".work-entry:last").append(newemployer);
       var worktitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
@@ -221,7 +221,7 @@ var projects = {
     title: "Website",
     dates: "2016/2017",
     description: "I worked with a group of 4 to bould a website for Unified fright management. the website aims to illustrates unifid fright services in australia and to make it easy for the new costomers to contact the owner David by using contact form , as well as making it ewwasy for david to manage inquiries in the admin dashboard.the all website was developed by Cackephp",
-    images:["images/uni1.jpg"]
+    images:["images/uni1.jpg","images/k1.png"]
 	 
   },
 {
@@ -248,12 +248,11 @@ var projects = {
 
       var projectdescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
       $(".project-entry:last").append(projectdescription);
-
-		 var newimages = HTMLprojectImage.replace("%data%", projects.projects[i].images);
-      $(".project-entry:last").append(newimages);
-		
-
-    }
+      for (var k = 0; k < projects.projects[i].images.length; k++) {
+       var newimages = HTMLprojectImage.replace("%data%", projects.projects[i].images[k]);
+        $(".project-entry:last").append(newimages);
+   }
+ }
   }
 };
 
