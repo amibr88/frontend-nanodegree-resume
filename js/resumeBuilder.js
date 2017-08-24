@@ -47,9 +47,9 @@ var bio = {
    
     $("#header").append(HTMLskillsStart);
 	  
-for(var j=0;j<bio.skills.length;j++){
+for(var s=0;s<bio.skills.length;s++){
 	
-	 var newskills = HTMLskills.replace("%data%", bio.skills[j]);
+	 var newskills = HTMLskills.replace("%data%", bio.skills[s]);
     $("#skills").append(newskills);
 }
   
@@ -154,20 +154,20 @@ var education = {
 
     $("#education").append(HTMLonlineClasses);
 
-    for (var i = 0; i < education.onlineCourses.length; i++) {
+    for (var e = 0; e < education.onlineCourses.length; e++) {
       $("#education").append(HTMLschoolStart);
 
-      var newtitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
+      var newtitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[e].title);
 
       $(".education-entry:last").append(newtitle);
 
-      var newonlineschool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
+      var newonlineschool = HTMLonlineSchool.replace("%data%", education.onlineCourses[e].school);
       $(".education-entry:last").append(newonlineschool);
 
-      var newonlinedate = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
+      var newonlinedate = HTMLonlineDates.replace("%data%", education.onlineCourses[e].dates);
       $(".education-entry:last").append(newonlinedate);
 
-      var onlineUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
+      var onlineUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[e].url);
       $(".education-entry:last").append(onlineUrl);
 
     }
@@ -188,23 +188,36 @@ var work = {
     title: "IT technician",
     location: "Riyadh",
     dates: "2011/2012",
-    description: "I was working on IT field . to fix Devices and manage the social media accounts",
-  }],
+    description: "I was working on IT field . to fix Devices and manage the social media accounts"
+  },
+		 {
+			 
+		employer: "Imam Muhammad bin saud uneversity",
+    title: "IT technician",
+    location: "Riyadh",
+    dates: "2011",
+    description: "I was working on IT team to fix devices"	 
+			 
+			 
+			 
+		 }
+		
+		],
 	
   display: function() {
 	$("#workExperience").append(HTMLworkStart);
     "use strict";
-    for (var i = 0; i < work.jobs.length; i++) {
+    for (var m = 0; m < work.jobs.length; m++) {
       $("#workExperience").append(HTMLworkStart);
-      var newemployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+      var newemployer = HTMLworkEmployer.replace("%data%", work.jobs[m].employer);
       $(".work-entry:last").append(newemployer);
-      var worktitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
+      var worktitle = HTMLworkTitle.replace("%data%", work.jobs[m].title);
       $(".work-entry:last").append(worktitle);
-      var worklocation = HTMLworkDates.replace("%data%", work.jobs[i].location);
+      var worklocation = HTMLworkDates.replace("%data%", work.jobs[m].location);
       $(".work-entry:last").append(worklocation);
-      var workdate = HTMLworkLocation.replace("%data%", work.jobs[i].dates);
+      var workdate = HTMLworkLocation.replace("%data%", work.jobs[m].dates);
       $(".work-entry:last").append(workdate);
-      var workDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+      var workDescription = HTMLworkDescription.replace("%data%", work.jobs[m].description);
       $(".work-entry:last").append(workDescription);
 
     }
@@ -235,21 +248,21 @@ var projects = {
   display: function() {
     "use strict";
 
-    for (var i = 0; i < projects.projects.length; i++) {
+    for (var j = 0; j < projects.projects.length; j++) {
       $("#projects").append(HTMLprojectStart);
 
       $("#project-entry:last").append(HTMLprojectStart);
 
-      var projecttitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
+      var projecttitle = HTMLprojectTitle.replace("%data%", projects.projects[j].title);
       $(".project-entry:last").append(projecttitle);
 
-      var projectdates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
+      var projectdates = HTMLprojectDates.replace("%data%", projects.projects[j].dates);
       $("project-entry:last").append(projectdates);
 
-      var projectdescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
+      var projectdescription = HTMLprojectDescription.replace("%data%", projects.projects[j].description);
       $(".project-entry:last").append(projectdescription);
-      for (var k = 0; k < projects.projects[i].images.length; k++) {
-       var newimages = HTMLprojectImage.replace("%data%", projects.projects[i].images[k]);
+      for (var k = 0; k < projects.projects[j].images.length; k++) {
+       var newimages = HTMLprojectImage.replace("%data%", projects.projects[j].images[k]);
         $(".project-entry:last").append(newimages);
    }
  }
