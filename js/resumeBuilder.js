@@ -53,6 +53,20 @@ for(var s=0;s<bio.skills.length;s++){
     $("#skills").append(newskills);
 }
   
+var newmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    $("#footerContacts").append(newmobile);
+
+    var newemail = HTMLemail.replace("%data%", bio.contacts.email);
+    $("#footerContacts").append(newemail);
+
+    var newtwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+    $("#footerContacts").append(newtwitter);
+
+    var newgithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    $("#footerContacts").append(newgithub);
+
+    var newlocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    $("#footerContacts").append(newlocation);
 
   }
 };

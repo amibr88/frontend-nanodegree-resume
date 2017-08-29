@@ -1,4 +1,8 @@
-body,
+.cv{
+	
+	font-family:Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+	color: cadetblue;
+}
 div,
 ul,
 li,
@@ -165,6 +169,7 @@ ul {
 
 img {
   padding: 10px;
+	width: 300px;
 }
 
 span {
